@@ -40,7 +40,6 @@ projection(cecr) <- projection(grids)
 # extract gridded variables at sentinel site locations
 cecgrid <- extract(grids, cecr)
 cecdat <- as.data.frame(cbind(cecr, cecgrid)) 
-cecdat <- na.omit(cecdat) ## includes only complete cases
 
 # Write output file -------------------------------------------------------
 dir.create("Results", showWarnings=F)
