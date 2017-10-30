@@ -39,7 +39,7 @@ phdat <- cbind(phdat, ph.proj)
 coordinates(phdat) <- ~x+y
 projection(phdat) <- projection(grids)
 
-# extract gridded variables at sentinel site locations
+# extract gridded variables at site locations
 phgrid <- extract(grids, phdat)
 phdat <- as.data.frame(cbind(phdat, phgrid))
 
