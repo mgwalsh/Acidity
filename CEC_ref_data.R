@@ -21,8 +21,8 @@ samp <- read.table("Samples.csv", header=T, sep=",")
 cecr <- merge(prof, samp, by="SSN")
 
 # download Gtifs and stack in raster (note this is a big 550+ Mb download)
-download("https://www.dropbox.com/s/pshrtvjf7navegu/TZ_250m_2017.zip?raw=1", "TZ_250m_2017.zip", mode="wb")
-unzip("TZ_250m_2017.zip", overwrite=T)
+download("https://www.dropbox.com/s/a3zjx6m72ya9vc6/AF_prod_grids.zip?raw=1", "AF_prod_grids.zip", mode="wb")
+unzip("AF_prod_grids.zip", overwrite=T)
 glist <- list.files(pattern="tif", full.names=T)
 grids <- stack(glist)
 
