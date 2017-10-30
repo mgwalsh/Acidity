@@ -6,6 +6,8 @@
 suppressPackageStartupMessages({
   require(downloader)
   require(lattice)
+  require(rgdal)
+  require(raster)
 })
 
 # Data downloads -----------------------------------------------------------
@@ -19,6 +21,7 @@ unzip("CEC_ref_data.zip", overwrite=T)
 prof <- read.table("Profiles.csv", header=T, sep=",")
 samp <- read.table("Samples.csv", header=T, sep=",")
 cecr <- merge(prof, samp, by="SSN")
+cecr <- na.omit(cecr)
 
 # download Gtifs and stack in raster (note this is a big 550+ Mb download)
 download("https://www.dropbox.com/s/a3zjx6m72ya9vc6/AF_prod_grids.zip?raw=1", "AF_prod_grids.zip", mode="wb")
