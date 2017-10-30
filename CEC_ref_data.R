@@ -18,5 +18,27 @@ download("https://www.dropbox.com/s/4sdz7hj8o4p3quf/CEC_ref_data.zip?raw=1", "CE
 unzip("CEC_ref_data.zip", overwrite=T)
 prof <- read.table("Profiles.csv", header=T, sep=",")
 samp <- read.table("Samples.csv", header=T, sep=",")
-cecref <- merge(prof, samp, by="SSN")
+cecr <- merge(prof, samp, by="SSN")
 
+# download Gtifs and stack in raster (note this is a big 550+ Mb download)
+download("https://www.dropbox.com/s/pshrtvjf7navegu/TZ_250m_2017.zip?raw=1", "TZ_250m_2017.zip", mode="wb")
+unzip("TZ_250m_2017.zip", overwrite=T)
+glist <- list.files(pattern="tif", full.names=T)
+grids <- stack(glist)
+
+# Data setup ---------------------------------------------------------------
+# project GeoSurvey coords to grid CRS
+cec.proj <- as.data.frame(project(cbind(cecr$Lon, cecr$Lat), "+proj=laea +ellps=WGS84 +lon_0=20 +lat_0=5 +units=m +no_defs"))
+colnames(cec.proj) <- c("x","y")
+cecr <- cbind(cecr, cec.proj)
+coordinates(cecr) <- ~x+y
+projection(cecr) <- projection(grids)
+
+# extract gridded variables at sentinel site locations
+cecgrid <- extract(grids, cecr)
+cecdat <- as.data.frame(cbind(cecr, cecgrid)) 
+cecdat <- na.omit(cecdat) ## includes only complete cases
+
+# Write output file -------------------------------------------------------
+dir.create("Results", showWarnings=F)
+write.csv(CECdat, "./Results/AF_cec_dat.csv", row.names = FALSE)
