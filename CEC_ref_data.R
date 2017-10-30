@@ -44,4 +44,4 @@ cecdat <- na.omit(cecdat) ## includes only complete cases
 
 # Write output file -------------------------------------------------------
 dir.create("Results", showWarnings=F)
-write.csv(CECdat, "./Results/AF_cec_dat.csv", row.names = FALSE)
+write.csv(cecdat, "./Results/AF_cec_dat.csv", row.names = FALSE)
