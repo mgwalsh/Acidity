@@ -32,7 +32,7 @@ glist <- list.files(pattern="tif", full.names=T)
 grids <- stack(glist)
 
 # Data setup ---------------------------------------------------------------
-# project GeoSurvey coords to grid CRS
+# project reference data coords to grid CRS
 ph.proj <- as.data.frame(project(cbind(phdat$lon, phdat$lat), "+proj=laea +ellps=WGS84 +lon_0=20 +lat_0=5 +units=m +no_defs"))
 colnames(ph.proj) <- c("x","y")
 phdat <- cbind(phdat, ph.proj)
