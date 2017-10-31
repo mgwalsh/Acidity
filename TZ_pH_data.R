@@ -18,7 +18,6 @@ setwd("./TZ_data")
 download("https://www.dropbox.com/s/7vzb6fhrvga3lh2/TZ_pH.csv.zip?raw=1", "TZ_pH.csv.zip", mode="wb")
 unzip("TZ_pH.csv.zip", overwrite=T)
 phdat <- read.table("TZ_pH.csv", header=T, sep=",")
-phdat[,4] <- sapply(phdat[,4], as.numeric)
 
 # download Gtifs and stack in raster (note this is a big 800+ Mb download)
 download("https://www.dropbox.com/s/pshrtvjf7navegu/TZ_250m_2017.zip?raw=1", "TZ_250m_2017.zip", mode="wb")
