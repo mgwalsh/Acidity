@@ -48,4 +48,5 @@ write.csv(cecdat, "./Results/AF_cec_dat.csv", row.names = FALSE)
 # Profile-level glmer -----------------------------------------------------
 require(arm)
 hp.glmer <- glmer(I(Hp>1)~pH+(1|PID), family="binomial", data=cecdat)
-summary(hp.glmer)$coef
+summary(hp.glmer)
+
