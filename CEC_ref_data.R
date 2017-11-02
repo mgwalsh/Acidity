@@ -44,3 +44,9 @@ cecdat <- as.data.frame(cbind(cecr, cecgrid))
 # Write output file -------------------------------------------------------
 dir.create("Results", showWarnings=F)
 write.csv(cecdat, "./Results/AF_cec_dat.csv", row.names = FALSE)
+
+# Profile-level glmer -----------------------------------------------------
+require(arm)
+hp.glmer <- glmer(I(Hp>1)~pH+(1|PID), family="binomial", cecdat)
+display(hp.glmer)
+
