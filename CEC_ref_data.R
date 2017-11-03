@@ -45,10 +45,9 @@ cecdat <- as.data.frame(cbind(cecr, cecgrid))
 dir.create("Results", showWarnings=F)
 write.csv(cecdat, "./Results/AF_cec_dat.csv", row.names = FALSE)
 
-# Profile-level glmer -----------------------------------------------------
+# Site-level glmer --------------------------------------------------------
 require(arm)
-hp.glmer <- glmer(I(Hp<1)~pH+(1|Site), family="binomial", data=cecdat)
+hp.glmer <- glmer(I(Hp<1)~pH+(1|Site), family=binomial, data=cecdat)
 summary(hp.glmer)
 fixefs <- fixef(hp.glmer)
-ED75 <- log(0.75/0.25)-fixefs[1]/fixefs[2]
-ED75
+log(0.8/0.2)-fixefs[1]/fixefs[2] ## pH at which 80% of observations are expected below 1 cmol/kg Hp
