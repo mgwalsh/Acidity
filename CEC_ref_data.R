@@ -49,4 +49,6 @@ write.csv(cecdat, "./Results/AF_cec_dat.csv", row.names = FALSE)
 require(arm)
 hp.glmer <- glmer(I(Hp>1)~pH+(1|PID), family="binomial", data=cecdat)
 summary(hp.glmer)
-
+fixef.hp <- fixef(hp.glmer)
+ED50 <- -fixef.hp[1]/fixef.hp[2]
+ED50
