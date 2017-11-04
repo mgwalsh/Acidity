@@ -50,4 +50,4 @@ require(arm)
 hp.glmer <- glmer(I(Hp<1)~pH+(1|Site), family=binomial, data=cecdat)
 summary(hp.glmer)
 fixefs <- fixef(hp.glmer)
-log(0.8/0.2)-fixefs[1]/fixefs[2] ## pH at which 80% of observations are expected below 1 cmol/kg Hp
+(log(0.99/0.01)-fixefs[1])/fixefs[2] ## pH at which 95% of observations are expected below 1 cmol/kg Hp
