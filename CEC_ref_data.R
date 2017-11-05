@@ -47,13 +47,13 @@ write.csv(cecdat, "./Results/AF_cec_dat.csv", row.names = FALSE)
 
 # Site-level glmer --------------------------------------------------------
 require(arm)
-hp.glmer <- glmer(I(Hp<1)~pH+(1|Site), family=binomial, data=cecdat)
+hp.glmer <- glmer(I(Hp>1)~pH+(1|Site), family=binomial, data=cecdat)
 summary(hp.glmer)
 fixefs <- fixef(hp.glmer)
-ED <- (log(0.99/0.01)-fixefs[1])/fixefs[2] ## pH at which 99% of observations are expected below 1 cmol/kg Hp
+ED <- (log(0.01/0.99)-fixefs[1])/fixefs[2] ## pH at which 99% of observations are expected below 1 cmol/kg Hp
 
 # pH vs Hp plot
 par(mfrow=c(1,1), mar=c(4.5,4.5,1,1), pty="s")
 plot(Hp~pH, cecdat, ylab = expression("Exch. Acidity" ~ (cmol[c] ~ kg^{-1})), xlab="pH (Water)", cex.lab=1.3)
 abline(h=1, v=ED, col="red", lwd=1.5)
-text(round(ED,2), 4, paste("Acid soils: pH <", round(ED,2)), pos=4, col="red", cex=1.2)
+text(round(ED,2), 4, paste("Case definition: pH <", round(ED,2)), pos=4, col="red", cex=1.2)
