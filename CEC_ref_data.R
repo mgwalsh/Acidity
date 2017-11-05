@@ -54,6 +54,6 @@ ED <- (log(0.99/0.01)-fixefs[1])/fixefs[2] ## pH at which 99% of observations ar
 
 # pH vs Hp plot
 par(mfrow=c(1,1), mar=c(4.5,4.5,1,1), pty="s")
-plot(Hp~pH, cecdat, ylab = expression("Exch. acidity" ~ (cmol[c] ~ kg^{-1})), xlab="pH (Water)", cex.lab=1.3)
+plot(Hp~pH, cecdat, ylab = expression("Exch. Acidity" ~ (cmol[c] ~ kg^{-1})), xlab="pH (Water)", cex.lab=1.3)
 abline(h=1, v=ED, col="red", lwd=1.5)
 text(round(ED,2), 4, paste("Acid soils: pH <", round(ED,2)), pos=4, col="red", cex=1.2)
