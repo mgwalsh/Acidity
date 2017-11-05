@@ -53,7 +53,7 @@ fixefs <- fixef(hp.glmer)
 
 # Case definition
 p <- 0.01 ## specify false negative probability
-CD <- (log(p/(1-p))-fixefs[1])/fixefs[2] ## pH at which 99% of observations are expected below 1 cmol/kg Hp
+CD <- (log(p/(1-p))-fixefs[1])/fixefs[2] ## pH at which p/1-p of observations are expected below 1 cmol/kg Hp
 
 # pH vs Hp plot
 par(mfrow=c(1,1), mar=c(4.5,4.5,1,1), pty="s")
