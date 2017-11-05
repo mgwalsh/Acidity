@@ -50,4 +50,10 @@ require(arm)
 hp.glmer <- glmer(I(Hp<1)~pH+(1|Site), family=binomial, data=cecdat)
 summary(hp.glmer)
 fixefs <- fixef(hp.glmer)
-(log(0.99/0.01)-fixefs[1])/fixefs[2] ## pH at which 95% of observations are expected below 1 cmol/kg Hp
+ED <- (log(0.99/0.01)-fixefs[1])/fixefs[2] ## pH at which 99% of observations are expected below 1 cmol/kg Hp
+
+# pH vs Hp plot
+
+plot(Hp~pH, cecdat, ylab = expression("Exch. acidity" ~ (cmol[c] ~ kg^{-1})), xlab="pH (Water)")
+abline(h=1, v=ED, col="red")
+
