@@ -5,7 +5,6 @@
 # install.packages(c("downloader","rgdal","raster")), dependencies=TRUE)
 suppressPackageStartupMessages({
   require(downloader)
-  require(lattice)
   require(rgdal)
   require(raster)
 })
