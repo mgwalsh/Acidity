@@ -53,7 +53,7 @@ fixefs <- fixef(hp.glmer)
 ED <- (log(0.99/0.01)-fixefs[1])/fixefs[2] ## pH at which 99% of observations are expected below 1 cmol/kg Hp
 
 # pH vs Hp plot
-
-plot(Hp~pH, cecdat, ylab = expression("Exch. acidity" ~ (cmol[c] ~ kg^{-1})), xlab="pH (Water)")
-abline(h=1, v=ED, col="red")
-
+par(mfrow=c(1,1), mar=c(4.5,4.5,1,1), pty="s")
+plot(Hp~pH, cecdat, ylab = expression("Exch. acidity" ~ (cmol[c] ~ kg^{-1})), xlab="pH (Water)", cex.lab=1.3)
+abline(h=1, v=ED, col="red", lwd=1.5)
+text(round(ED,2), 4, round(ED,2), pos=4, col="red")
