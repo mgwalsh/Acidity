@@ -23,8 +23,8 @@ cecr <- merge(prof, samp, by="SSN")
 cecr <- na.omit(cecr)
 
 # download Gtifs and stack in raster (note this is a big 550+ Mb download)
-download("https://www.dropbox.com/s/a3zjx6m72ya9vc6/AF_prod_grids.zip?raw=1", "AF_prod_grids.zip", mode="wb")
-unzip("AF_prod_grids.zip", overwrite=T)
+download("https://www.dropbox.com/s/uyzsr8oqrwfju19/AF_EEV_grids.zip?raw=1", "AF_EEV_grids.zip", mode="wb")
+unzip("AF_EEV_grids.zip", overwrite=T)
 glist <- list.files(pattern="tif", full.names=T)
 grids <- stack(glist)
 
