@@ -56,8 +56,7 @@ CD <- (log(p/(1-p))-fixefs[1])/fixefs[2] ## pH at which p/1-p of observations ar
 
 # pH vs Hp plot
 par(mfrow=c(1,1), mar=c(4.5,4.5,1,1), pty="s")
-plot(Hp~pH, cecdat, ylab = expression("Exch. Acidity" ~ (cmol[c] ~ kg^{-1})), xlab="pH (Water)", col="grey", cex.lab=1.3)
-lines(lowess(cecdat$pH,cecdat$Hp), lwd=1.5, col="blue")
+plot(Hp~pH, cecdat, ylab = expression("Exch. Acidity" ~ (cmol[c] ~ kg^{-1})), xlab="pH (Water)", cex.lab=1.3)
 abline(h=1, v=CD, col="red", lwd=1.5)
 text(round(CD,2), 4, paste("Case definition: pH <", round(CD,2)), pos=4, col="red", cex=1.2)
 
