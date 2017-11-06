@@ -63,17 +63,17 @@ text(round(CD,2), 4, paste("Case definition: pH <", round(CD,2)), pos=4, col="re
 
 # EEV plots ---------------------------------------------------------------
 par(mfrow=c(2,2), mar=c(4.5,4.5,1,1), pty="s")
-plot(pH~MAP, cecdat, xlab = expression("Mean annual precipitation" ~ (mm ~ yr^{-1})), ylab="Soil pH (Water)", col="grey", cex.lab=1.3)
+plot(pH~MAP, cecdat, xlab = expression("Mean annual precipitation" ~ (mm ~ yr^{-1})), ylab="Soil pH (Water)", cex.lab=1.3)
 lines(lowess(cecdat$MAP,cecdat$pH), lwd=1.5, col="blue")
 abline(h=round(CD,2), lwd=1.5, col="red")
-plot(pH~LSTD, cecdat, xlab = expression("Mean surface temperature" ~ (C^{o})), ylab="Soil pH (Water)", col="grey", cex.lab=1.3)
+plot(pH~LSTD, cecdat, xlab = expression("Mean land surface temp." ~ (C^{o})), ylab="Soil pH (Water)", cex.lab=1.3)
 lines(lowess(cecdat$LSTD,cecdat$pH), lwd=1.5, col="blue")
 abline(h=round(CD,2), lwd=1.5, col="red")
-plot(pH~PARA, cecdat, xlab = "fAPAR (%)", ylab="Soil pH (Water)",
-     xlim=c(0,100), col="grey", cex.lab=1.3)
+plot(pH~PARA, cecdat, xlab = "Mean fAPAR (%)", ylab="Soil pH (Water)",
+     xlim=c(0,100), cex.lab=1.3)
 lines(lowess(cecdat$PARA,cecdat$pH), lwd=1.5, col="blue")
 abline(h=round(CD,2), lwd=1.5, col="red")
-plot(pH~NPPA, cecdat, xlab = expression("NPP" ~ (kg ~ ha^{-1} ~ yr^{-1})), ylab="Soil pH (Water)",
-     xlim=c(0,20000), col="grey", cex.lab=1.3)
+plot(pH~NPPA, cecdat, xlab = expression("Mean NPP" ~ (kg ~ ha^{-1} ~ yr^{-1})), ylab="Soil pH (Water)",
+     xlim=c(0,20000), cex.lab=1.3)
 lines(lowess(cecdat$NPPA,cecdat$pH), lwd=1.5, col="blue")
 abline(h=round(CD,2), lwd=1.5, col="red")
