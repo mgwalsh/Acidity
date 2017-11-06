@@ -68,11 +68,9 @@ abline(h=round(CD,2), lwd=1.5, col="red")
 plot(pH~LSTD, cecdat, xlab = expression("Mean land surface temp." ~ (C^{o})), ylab="Soil pH (Water)", cex.lab=1.3)
 lines(lowess(cecdat$LSTD,cecdat$pH), lwd=1.5, col="blue")
 abline(h=round(CD,2), lwd=1.5, col="red")
-plot(pH~PARA, cecdat, xlab = "Mean fAPAR (%)", ylab="Soil pH (Water)",
-     xlim=c(0,100), cex.lab=1.3)
+plot(pH~PARA, cecdat, xlab = "Mean fAPAR (%)", ylab="Soil pH (Water)", xlim=c(0,100), cex.lab=1.3)
 lines(lowess(cecdat$PARA,cecdat$pH), lwd=1.5, col="blue")
 abline(h=round(CD,2), lwd=1.5, col="red")
-plot(pH~NPPA, cecdat, xlab = expression("Mean NPP" ~ (kg ~ ha^{-1} ~ yr^{-1})), ylab="Soil pH (Water)",
-     xlim=c(0,20000), cex.lab=1.3)
+plot(pH~NPPA, cecdat, xlab = expression("Mean NPP" ~ (kg ~ ha^{-1} ~ yr^{-1})), ylab="Soil pH (Water)", xlim=c(0,2), cex.lab=1.3)
 lines(lowess(cecdat$NPPA,cecdat$pH), lwd=1.5, col="blue")
 abline(h=round(CD,2), lwd=1.5, col="red")
