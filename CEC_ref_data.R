@@ -60,7 +60,7 @@ plot(Hp~pH, cecdat, ylab = expression("Exch. Acidity" ~ (cmol[c] ~ kg^{-1})), xl
 abline(h=1, v=CD, col="red", lwd=1.5)
 text(round(CD,2), 4, paste("Case definition: pH <", round(CD,2)), pos=4, col="red", cex=1.2)
 
-# EV plots ----------------------------------------------------------------
+# EEV plots ---------------------------------------------------------------
 par(mfrow=c(2,2), mar=c(4.5,4.5,0.5,0.5), pty="s")
 plot(pH~MAP, cecdat, xlab = expression("Mean annual precipitation" ~ (mm ~ yr^{-1})), ylab="Soil pH (Water)", col="grey", cex.lab=1.3)
 lines(lowess(cecdat$MAP,cecdat$pH), lwd=1.5, col="blue")
