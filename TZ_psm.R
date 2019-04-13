@@ -145,7 +145,7 @@ spred <- as.data.frame(cbind(s_val, spred))
 
 # stacking model validation labels and features
 cp_val <- spred$pH
-gf_val <- spred[,51:55] ## subset validation features
+gf_val <- spred[,51:54] ## subset validation features
 
 # Model stacking ----------------------------------------------------------
 # start doParallel to parallelize model fitting
