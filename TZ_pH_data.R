@@ -42,6 +42,7 @@ projection(sdat) <- projection(grids)
 # extract gridded variables at site locations
 sgrid <- extract(grids, sdat)
 sdat <- as.data.frame(cbind(sdat, sgrid))
+sdat <- sdat[complete.cases(sdat[ ,c(1:50)]),] ## removes incomplete cases
 
 # Write output file --------------------------------------------------------
 dir.create("Results", showWarnings=F)
