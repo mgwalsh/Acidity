@@ -45,4 +45,4 @@ sdat <- as.data.frame(cbind(sdat, sgrid))
 
 # Write output file --------------------------------------------------------
 dir.create("Results", showWarnings=F)
-write.csv(phdat, "./Results/TZ_sdat.csv", row.names = FALSE)
+write.csv(sdat, "./Results/TZ_sdat.csv", row.names = FALSE)
