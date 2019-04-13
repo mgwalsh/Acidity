@@ -138,14 +138,14 @@ names(preds) <- c("gl","rf","gb","nn")
 plot(preds, axes = F)
 
 # extract model predictions
-coordinates(gs_val) <- ~x+y
-projection(gs_val) <- projection(preds)
-spred <- extract(preds, gs_val)
-spred <- as.data.frame(cbind(gs_val, spred))
+coordinates(s_val) <- ~x+y
+projection(s_val) <- projection(preds)
+spred <- extract(preds, s_val)
+spred <- as.data.frame(cbind(s_val, spred))
 
 # stacking model validation labels and features
-cp_val <- gspred$pH
-gf_val <- gspred[,64:68] ## subset validation features
+cp_val <- spred$pH
+gf_val <- spred[,51:55] ## subset validation features
 
 # Model stacking ----------------------------------------------------------
 # start doParallel to parallelize model fitting
