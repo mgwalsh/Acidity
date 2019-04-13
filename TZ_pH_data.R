@@ -33,7 +33,7 @@ grids <- stack(glist)
 
 # Data setup ---------------------------------------------------------------
 # project reference data coords to grid CRS
-sdat.proj <- as.data.frame(project(cbind(phdat$lon, phdat$lat), "+proj=laea +ellps=WGS84 +lon_0=20 +lat_0=5 +units=m +no_defs"))
+sdat.proj <- as.data.frame(project(cbind(sdat$lon, sdat$lat), "+proj=laea +ellps=WGS84 +lon_0=20 +lat_0=5 +units=m +no_defs"))
 colnames(sdat.proj) <- c("x","y")
 sdat <- cbind(sdat, sdat.proj)
 coordinates(sdat) <- ~x+y
